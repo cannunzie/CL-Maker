@@ -50,6 +50,13 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Syncfusion.DocIO.Net.Core" Version="23.1.44" />
+		<PackageReference Include="Syncfusion.Licensing" Version="23.1.44" />
 	</ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
+    <!-- Required - WinUI does not yet have buildTransitive for everything -->
+    <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.5.1" />
+  </ItemGroup>
 
 </Project>

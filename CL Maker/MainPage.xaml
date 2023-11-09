@@ -1,41 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CL_Maker.MainPage">
+             x:Class="CL_Maker.MainPage"
+             Title="CL Maker">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+	<StackLayout Margin="20,35,20,25">
+		<Label Text="Position Name:"></Label>
+		<Entry x:Name="posNameEntry" Placeholder="Full Stack Developer"></Entry>
+		<Label Text="Company name:"></Label>
+		<Entry x:Name="compNameEntry"></Entry>
+		<Label Text="Company address:"></Label>
+		<Entry x:Name="compAddressEntry" Placeholder="227 11 Ave SW, Calgary, AB T2R 1R9"></Entry>
+		<Label Text="Manager name:"></Label>
+		<Entry x:Name="compManagerEntry"></Entry>
+		<Label Text="Manager department:"></Label>
+		<Entry x:Name="compDeptEntry" Placeholder="IT Department"></Entry>
+		<Label Text="Job description:"></Label>
+		<Editor x:Name="jobDescriptionEditor"></Editor>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+		<Button Text="Create" x:Name="createBtn" Clicked="OnClickCreateBtn"></Button>
+	</StackLayout>
 
 </ContentPage>
