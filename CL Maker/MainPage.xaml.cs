@@ -6,18 +6,39 @@ namespace CL_Maker
 {
 	public partial class MainPage : ContentPage
 	{
-		List<string> frontEndList, backEndList;
+		Category frontEndCat, backEndCat, comsCat, problemSolvingCat;
 		public MainPage()
 		{
 			InitializeComponent();
+			PopulateKeywords();
+		}
 
-			frontEndList.Add("HTML");
-			frontEndList.Add("JS");
-			frontEndList.Add("HTML");
+		private void PopulateKeywords() {
+			frontEndCat = new("Front End");
+			backEndCat = new("Back End");
+			comsCat = new("Communication");
+			
+			problemSolvingCat = new("Problem Solving");
+			problemSolvingCat.SetOutput("During my tenure at Purehealth Pharmacy, I was dedicated to finding innovative solutions to enhance "
+				+ "operational efficiency. One of the key challenges we faced was streamlining the order management process to minimize "
+				+ "errors and improve turnaround times. Leveraging my technological skills, I implemented a robust pharmacy management "
+				+ "software that automated order processing, inventory tracking, and sales. This digital solution not only reduced manual "
+				+ "errors significantly but also allowed our staff to focus more on providing personalized customer service. My proactive "
+				+ "approach in identifying problems and implementing technology-driven solutions at Purehealth Pharmacy reflects my ability "
+				+ "to merge technical expertise with practical problem-solving, ensuring seamless operations and customer satisfaction.");
+			string[] prolemSolvingKeywords = { "innovative", "efficiency" };
+			problemSolvingCat.GetKeywords().AddRange(prolemSolvingKeywords);
+
+			frontEndCat.GetKeywords().Add("HTML");
+			frontEndCat.GetKeywords().Add("Javascript");
+			frontEndCat.GetKeywords().Add("CSS");
+
+
 		}
 
 		void OnClickCreateBtn(object sender, EventArgs e)
 		{
+			ParseJobDescription(jobDescriptionEditor.Text);
 			Models.Contact myContact = new("33 Auburn Crest Ln SE, Calgary, AB T3M 0Z1", "Caleb Annunziello", "calebannunziello@gmail.com");
 			Company company = new(new Address(compAddressEntry.Text), compNameEntry.Text, compDeptEntry.Text, compManagerEntry.Text);
 			//4995 Market St SE, Calgary, AB T3M 2P9
@@ -104,6 +125,13 @@ namespace CL_Maker
 			//Saves the memory stream as file.
 			Services.SaveService saveService = new();
 			saveService.SaveAndView("Sample.docx", "application/msword", ms);
+		}
+
+		private void ParseJobDescription(string jobDescription) {
+			string[] keywords = jobDescription.Split();
+			foreach (string keyword in keywords) {
+				
+			}
 		}
 	}
 }
